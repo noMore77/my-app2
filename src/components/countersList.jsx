@@ -18,10 +18,14 @@ const CountersList = () => {
     const handleReset = () => {
         setCounters(initialState)
     }
-    const handleIncrement = () => {
-        console.log('increment')
-        //setCounters(counters => counters.value + 1) не работает
-        
+    const handleIncrement = (id) => {
+        console.log('increment', counters)
+        const increment = counters.map ((counter) => {
+            if (counter.id == id) {
+                counter.value += 1
+            }
+        }) 
+        setCounters(increment)
     }
     const handleDecrement = () => {
         console.log('decrement')
